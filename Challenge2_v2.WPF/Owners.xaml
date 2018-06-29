@@ -1,0 +1,35 @@
+﻿<Page x:Class="Challenge2_v2.WPF.Owners"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenge2_v2.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Owners" Loaded="Page_Loaded">
+
+    <Grid>
+        <StackPanel>
+            <Label FontSize="24" FontWeight="Bold">Owners</Label>
+            <DataGrid x:Name="dgrOwners" Margin="0,10,0,0" MinWidth="400" MinHeight="150" ItemsSource="{Binding allOwners}" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgrOwners_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Visibility="Hidden" Width="*" Header="OwnerID" Binding="{Binding OwnerID}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Surname" Binding="{Binding Surname}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Given Name" Binding="{Binding GivenName}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Phone" Binding="{Binding Phone}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label>Surname</Label>
+            <TextBox x:Name="txtSurname"></TextBox>
+            <Label>Given Name</Label>
+            <TextBox x:Name="txtGivenName"></TextBox>
+            <Label>Phone</Label>
+            <TextBox x:Name="txtPhone"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnCreate" Margin="10" MinWidth="100" Click="btnCreate_Click">Create</Button>
+                <Button x:Name="btnUpdate" Margin="10" MinWidth="100" Click="btnUpdate_Click">Update</Button>
+                <Button x:Name="btnDelete" Margin="10" MinWidth="100" Click="btnDelete_Click">Delete</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

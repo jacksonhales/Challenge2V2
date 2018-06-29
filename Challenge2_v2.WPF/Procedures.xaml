@@ -1,0 +1,32 @@
+﻿<Page x:Class="Challenge2_v2.WPF.Procedures"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenge2_v2.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Procedures" Loaded="Page_Loaded">
+
+    <Grid>
+        <StackPanel>
+            <Label FontSize="24" FontWeight="Bold">Procedures</Label>
+            <DataGrid x:Name="dgrProcedures" Margin="0,10,0,0" MinWidth="400" MinHeight="150" ItemsSource="{Binding proceduresList}" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgrProcedures_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Visibility="Hidden" Width="*" Header="Procedure ID" Binding="{Binding ProcedureID}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Procedure Name" Binding="{Binding Description}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label FontSize="24" FontWeight="Bold">Treatments</Label>
+            <DataGrid x:Name="dgrTreatments" Margin="0,10,0,0" MinWidth="400" MinHeight="150" ItemsSource="{Binding petTreatmentsList}" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Pet Name" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Date" Binding="{Binding Date, StringFormat=\{0:dd-MM-yyyy\}}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Notes" Binding="{Binding Notes}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Price" Binding="{Binding Price, StringFormat='{}{0:c}'}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>
